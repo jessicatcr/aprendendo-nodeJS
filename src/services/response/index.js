@@ -13,6 +13,7 @@ export const notFound = (res) => (entity) => {
   return null
 }
 
+// Usuário não atenticado/ Acesso negado
 export const authorOrAdmin = (res, user, userField) => (entity) => {
   if (entity) {
     const isAdmin = user.role === 'admin'

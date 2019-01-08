@@ -4,7 +4,7 @@ import { sendgridKey, defaultEmail } from '../../config'
 sendgridMail.setApiKey(sendgridKey)
 
 export const sendMail = ({
-  fromEmail = defaultEmail,
+  fromEmail = defaultEmail, // definido em config.js
   toEmail,
   subject,
   content

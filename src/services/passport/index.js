@@ -23,6 +23,7 @@ export const password = () => (req, res, next) =>
 export const facebook = () =>
   passport.authenticate('facebook', { session: false })
 
+// Como se fosse uma senha mestre do sistemas
 export const master = () =>
   passport.authenticate('master', { session: false })
 

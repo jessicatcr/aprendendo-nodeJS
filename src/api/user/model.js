@@ -7,6 +7,15 @@ import { env } from '../../config'
 
 const roles = ['user', 'admin']
 
+const addressSchema = new Schema({
+  street: {
+    type: String
+  },
+  number: {
+    type: Number
+  }
+})
+
 const userSchema = new Schema({
   email: {
     type: String,
@@ -37,6 +46,14 @@ const userSchema = new Schema({
   picture: {
     type: String,
     trim: true
+  },
+  active: {
+    type: Boolean,
+    required: true,
+    default: true
+  },
+  adress: {
+    type: addressSchema
   }
 }, {
   timestamps: true
@@ -109,4 +126,4 @@ userSchema.plugin(mongooseKeywords, { paths: ['email', 'name'] })
 const model = mongoose.model('User', userSchema)
 
 export const schema = model.schema
-export default model
+export default model // Exportando pra ficar acessível em outros lugares
